@@ -7,12 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # db/seeds.rb
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Cocktail.create(name: "Caipirinha")
-Cocktail.create(name: "White Russian")
-Dose.create(cocktail_id: 1, ingredient_id: 1, description: "100ml")
-Dose.create(cocktail_id: 2, ingredient_id: 1, description: "100ml")
-Dose.create(cocktail_id: 1, ingredient_id: 2, description: "100ml")
-Dose.create(cocktail_id: 2, ingredient_id: 2, description: "100ml")
+Dose.destroy_all
+Ingredient.destroy_all
+Cocktail.destroy_all
+i1 = Ingredient.create(name: "lemon")
+i2 = Ingredient.create(name: "ice")
+i3 = Ingredient.create(name: "mint leaves")
+c1 = Cocktail.create(name: "Caipirinha")
+c2 = Cocktail.create(name: "White Russian")
+Dose.create(cocktail_id: c1, ingredient_id: i1, description: "100ml")
+Dose.create(cocktail_id: c2, ingredient_id: i2, description: "100ml")
+Dose.create(cocktail_id: c1, ingredient_id: i3, description: "100ml")
+Dose.create(cocktail_id: c2, ingredient_id: i2, description: "100ml")
